@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    name: Build Magisk artifacts
+    name: Build Magisk artifacts1
     runs-on: macos-14
     strategy:
       fail-fast: false
