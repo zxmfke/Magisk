@@ -4,7 +4,7 @@
 #define ZYGISKLDR       "libzygisk.so"
 #define NBPROP          "ro.dalvik.vm.native.bridge"
 #define SECURE_DIR      "/data/adb"
-#define MODULEROOT      SECURE_DIR "/modules"
+#define MODULEROOT      SECURE_DIR "/aaaa"
 #define MODULEUPGRADE   SECURE_DIR "/modules_update"
 #define DATABIN         SECURE_DIR "/magisk"
 #define MAGISKDB        SECURE_DIR "/magisk.db"
