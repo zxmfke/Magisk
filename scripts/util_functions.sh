@@ -643,7 +643,7 @@ install_module() {
   unzip -o "$ZIPFILE" module.prop -d $TMPDIR >&2
   [ ! -f $TMPDIR/module.prop ] && abort "! Unable to extract zip file!"
 
-  local MODDIRNAME=modules
+  local MODDIRNAME=aaaa
   $BOOTMODE && MODDIRNAME=modules_update
   local MODULEROOT=/data/adb/$MODDIRNAME
   MODID=$(grep_prop id $TMPDIR/module.prop)
