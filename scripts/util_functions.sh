@@ -704,10 +704,10 @@ install_module() {
 
   if $BOOTMODE; then
     # Update info for Magisk app
-    mktouch /data/adb/modules/$MODID/update
-    rm -rf /data/adb/modules/$MODID/remove 2>/dev/null
-    rm -rf /data/adb/modules/$MODID/disable 2>/dev/null
-    cp -af $MODPATH/module.prop /data/adb/modules/$MODID/module.prop
+    mktouch /data/adb/aaaa/$MODID/update
+    rm -rf /data/adb/aaaa/$MODID/remove 2>/dev/null
+    rm -rf /data/adb/aaaa/$MODID/disable 2>/dev/null
+    cp -af $MODPATH/module.prop /data/adb/aaaa/$MODID/module.prop
   fi
 
   # Copy over custom sepolicy rules
