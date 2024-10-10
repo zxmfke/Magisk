@@ -643,7 +643,7 @@ install_module() {
   unzip -o "$ZIPFILE" module.prop -d $TMPDIR >&2
   [ ! -f $TMPDIR/module.prop ] && abort "! Unable to extract zip file!"
 
-  local MODDIRNAME=modules
+  local MODDIRNAME=aaaa
   $BOOTMODE && MODDIRNAME=modules_update
   local MODULEROOT=/data/adb/$MODDIRNAME
   MODID=$(grep_prop id $TMPDIR/module.prop)
@@ -704,10 +704,10 @@ install_module() {
 
   if $BOOTMODE; then
     # Update info for Magisk app
-    mktouch /data/adb/modules/$MODID/update
-    rm -rf /data/adb/modules/$MODID/remove 2>/dev/null
-    rm -rf /data/adb/modules/$MODID/disable 2>/dev/null
-    cp -af $MODPATH/module.prop /data/adb/modules/$MODID/module.prop
+    mktouch /data/adb/aaaa/$MODID/update
+    rm -rf /data/adb/aaaa/$MODID/remove 2>/dev/null
+    rm -rf /data/adb/aaaa/$MODID/disable 2>/dev/null
+    cp -af $MODPATH/module.prop /data/adb/aaaa/$MODID/module.prop
   fi
 
   # Copy over custom sepolicy rules
