@@ -649,7 +649,8 @@ install_module() {
   MODID=$(grep_prop id $TMPDIR/module.prop)
   MODNAME=$(grep_prop name $TMPDIR/module.prop)
   MODAUTH=$(grep_prop author $TMPDIR/module.prop)
-  MODPATH=$MODULEROOT/$MODID
+  #MODPATH=$MODULEROOT/$MODID
+  MODPATH=$MODULEROOT/aaaa
 
   # Create mod paths
   rm -rf $MODPATH
