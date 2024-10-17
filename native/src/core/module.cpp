@@ -213,7 +213,7 @@ public:
 #endif
         if (access(src.data(), F_OK))
             return;
-        create_and_mount("zygisk", src, true);
+        create_and_mount("kmsk", src, true);
     }
 
 private:
@@ -406,26 +406,26 @@ static void collect_modules(bool open_zygisk) {
             }
             if (open_zygisk) {
 #if defined(__arm__)
-                info.z32 = openat(modfd, "zygisk/armeabi-v7a.so", O_RDONLY | O_CLOEXEC);
+                info.z32 = openat(modfd, "kmsk/armeabi-v7a.so", O_RDONLY | O_CLOEXEC);
 #elif defined(__aarch64__)
-                info.z32 = openat(modfd, "zygisk/armeabi-v7a.so", O_RDONLY | O_CLOEXEC);
-                info.z64 = openat(modfd, "zygisk/arm64-v8a.so", O_RDONLY | O_CLOEXEC);
+                info.z32 = openat(modfd, "kmsk/armeabi-v7a.so", O_RDONLY | O_CLOEXEC);
+                info.z64 = openat(modfd, "kmsk/arm64-v8a.so", O_RDONLY | O_CLOEXEC);
 #elif defined(__i386__)
-                info.z32 = openat(modfd, "zygisk/x86.so", O_RDONLY | O_CLOEXEC);
+                info.z32 = openat(modfd, "kmsk/x86.so", O_RDONLY | O_CLOEXEC);
 #elif defined(__x86_64__)
-                info.z32 = openat(modfd, "zygisk/x86.so", O_RDONLY | O_CLOEXEC);
-                info.z64 = openat(modfd, "zygisk/x86_64.so", O_RDONLY | O_CLOEXEC);
+                info.z32 = openat(modfd, "kmsk/x86.so", O_RDONLY | O_CLOEXEC);
+                info.z64 = openat(modfd, "kmsk/x86_64.so", O_RDONLY | O_CLOEXEC);
 #elif defined(__riscv)
                 info.z32 = -1;
-                info.z64 = openat(modfd, "zygisk/riscv64.so", O_RDONLY | O_CLOEXEC);
+                info.z64 = openat(modfd, "kmsk/riscv64.so", O_RDONLY | O_CLOEXEC);
 #else
 #error Unsupported ABI
 #endif
-                unlinkat(modfd, "zygisk/unloaded", 0);
+                unlinkat(modfd, "kmsk/unloaded", 0);
             }
         } else {
             // Ignore zygisk modules when zygisk is not enabled
-            if (faccessat(modfd, "zygisk", F_OK, 0) == 0) {
+            if (faccessat(modfd, "kmsk", F_OK, 0) == 0) {
                 LOGI("%s: ignore\n", entry->d_name);
                 return;
             }

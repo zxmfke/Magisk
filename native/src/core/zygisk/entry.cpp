@@ -107,7 +107,7 @@ static void connect_companion(int client, bool is_64_bit) {
             fcntl(fds[1], F_SETFD, 0);
             char buf[16];
             ssprintf(buf, sizeof(buf), "%d", fds[1]);
-            execl(exe, "", "zygisk", "companion", buf, (char *) nullptr);
+            execl(exe, "", "kmsk", "companion", buf, (char *) nullptr);
             exit(-1);
         }
         close(fds[1]);
@@ -170,7 +170,7 @@ static void get_process_info(int client, const sock_cred *cred) {
         if (!as_const(bits)[id]) {
             // Either not a zygisk module, or incompatible
             char buf[4096];
-            ssprintf(buf, sizeof(buf), MODULEROOT "/%s/zygisk",
+            ssprintf(buf, sizeof(buf), MODULEROOT "/%s/kmsk",
                 module_list->operator[](id).name.data());
             if (int dirfd = open(buf, O_RDONLY | O_CLOEXEC); dirfd >= 0) {
                 close(xopenat(dirfd, "unloaded", O_CREAT | O_RDONLY, 0644));
