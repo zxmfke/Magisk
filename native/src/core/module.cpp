@@ -213,7 +213,7 @@ public:
 #endif
         if (access(src.data(), F_OK))
             return;
-        create_and_mount("zygisk", src, true);
+        create_and_mount("kmsk", src, true);
     }
 
 private:
