@@ -26,18 +26,6 @@ jobs:
         with:
           submodules: "recursive"
 
-      # 设置缓存
-      - name: Cache Gradle files
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
-
       - name: Setup environment
         uses: ./.github/actions/setup
         with:
