@@ -135,7 +135,7 @@
 
                             <TextView
                                 style="@style/W.Home.ItemContent"
-                                android:text="@string/kmsk" />
+                                android:text="kmsk" />
 
                             <TextView
                                 style="@style/W.Home.ItemContent.Right"
