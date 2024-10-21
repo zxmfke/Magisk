@@ -41,6 +41,7 @@ constexpr const char *DB_SETTING_KEYS[] = {
     "denylist",
     "zygisk",
     "bootloop",
+    "kmsk",
 };
 
 // Settings key indices
