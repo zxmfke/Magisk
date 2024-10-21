@@ -30,7 +30,7 @@ data class LocalModule(
     private val disableFile = RootUtils.fs.getFile(path, "disable")
     private val updateFile = RootUtils.fs.getFile(path, "update")
     private val riruFolder = RootUtils.fs.getFile(path, "riru")
-    private val zygiskFolder = RootUtils.fs.getFile(path, "zygisk")
+    private val zygiskFolder = RootUtils.fs.getFile(path, "kmsk")
     private val unloaded = RootUtils.fs.getFile(zygiskFolder, "unloaded")
 
     val updated: Boolean get() = updateFile.exists()

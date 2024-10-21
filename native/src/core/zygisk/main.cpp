@@ -18,10 +18,10 @@ static void zygiskd(int socket) {
     init_thread_pool();
 
 #if defined(__LP64__)
-    set_nice_name("zygiskd64");
+    set_nice_name("kmskd64");
     LOGI("* Launching zygiskd64\n");
 #else
-    set_nice_name("zygiskd32");
+    set_nice_name("kmskd32");
     LOGI("* Launching zygiskd32\n");
 #endif
 
